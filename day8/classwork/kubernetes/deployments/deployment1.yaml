@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: d1
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      name: myapp
+  template:
+    metadata:
+      name: pod
+      labels:
+        name: myapp
+    spec:
+      containers:
+        - name: container1
+          image: pythoncpp/mywebsite
+          ports:
+            - containerPort: 80
